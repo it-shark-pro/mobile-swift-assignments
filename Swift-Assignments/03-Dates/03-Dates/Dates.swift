@@ -20,7 +20,7 @@ class DatesFunctions {
      * Parses an ISO 8601 string date representation into timestamp value
      * For ISO 8601 date specification refer to : https://en.wikipedia.org/wiki/ISO_8601
      *
-     * Example :
+     * Example:
      *    "2016-01-19T16:07:37+00:00"    => Date()
      *    "2016-01-19T08:07:37Z"         => Date()
      */
@@ -32,7 +32,7 @@ class DatesFunctions {
      * Returns true if specified date is leap year and false otherwise
      * Please find algorithm here: https://en.wikipedia.org/wiki/Leap_year#Algorithm
      *
-     * Example :
+     * Example:
      *    1900/1/1    => false
      *    2000/1/1    => true
      *    2001/1/1    => false

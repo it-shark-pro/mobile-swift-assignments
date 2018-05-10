@@ -10,4 +10,7 @@
    <FileRef
       location = "group:03-Dates/03-Dates.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:04-Arrays/04-Arrays.xcodeproj">
+   </FileRef>
 </Workspace>
