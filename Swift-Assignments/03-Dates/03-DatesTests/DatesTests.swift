@@ -11,7 +11,7 @@ class DatesTests: XCTestCase {
         dut = DatesFunctions()
     }
     
-    func testDateFromRFC2822 {
+    func testDateFromRFC2822() {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, dd MM yyyy HH:mm:ss"
         
@@ -20,7 +20,7 @@ class DatesTests: XCTestCase {
         XCTAssertEqual(dut.date(from: "Sun, 17 May 1998 03:00:00 GMT+01"), formatter.date(from: "Sun, 17 May 1998 03:00:00 GMT+01"))
     }
     
-    func testTimeIntervalFromISO8601 {
+    func testTimeIntervalFromISO8601() {
         let formatter = ISO8601DateFormatter()
         
         XCTAssertEqual(dut.timeInterval(from: "2016-01-19T16:07:37+00:00"), formatter.date(from: "2016-01-19T16:07:37+00:00")?.timeIntervalSince1970)
@@ -31,34 +31,30 @@ class DatesTests: XCTestCase {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "1900")), false)
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2000")), true)
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2001")), false)
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2012")), true)
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2015")), false)
+        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "1900")!), false)
+        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2000")!), true)
+        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2001")!), false)
+        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2012")!), true)
+        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2015")!), false)
     }
-    
-    /**
-     * Returns the string represention of the timespan between two dates.
-     * The format of output string is "HH:mm:ss.sss"
-     *
-     * Example:
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,11,0,0)   => "01:00:00.000"
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,30,0)       => "00:30:00.000"
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,20)        => "00:00:20.000"
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
-     */
-    
+       
     func testTimeSpan() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss.sss yyyy"
+        formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
         
-        Date.t
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "1900")), formatter.date(from: "10:00:00.000 2000").)
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2000")), true)
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2001")), false)
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2012")), true)
-        XCTAssertEqual(dut.isDateLeapYear(formatter.date(from: "2015")), false)
+        XCTAssertEqual(dut.timeSpan(from: formatter.date(from: "01/01/2000 10:00:00")!, to: formatter.date(from: "01/01/2000 11:00:00")!), "01:00:00")
+        XCTAssertEqual(dut.timeSpan(from: formatter.date(from: "01/01/2000 10:00:00")!, to: formatter.date(from: "01/01/2000 10:30:00")!), "00:30:00")
+        XCTAssertEqual(dut.timeSpan(from: formatter.date(from: "01/01/2000 10:00:00")!, to: formatter.date(from: "01/01/2000 10:00:20")!), "00:00:20")
+        XCTAssertEqual(dut.timeSpan(from: formatter.date(from: "01/01/2000 10:00:00")!, to: formatter.date(from: "01/01/2000 15:20:10")!), "05:20:10")
+    }
+    
+    func testAngleBetweenClockHands() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+
+        XCTAssertEqual(dut.angleBetweebClockHands(date: formatter.date(from: "05/02/2016 00:00")!), 0)
+        XCTAssertEqual(dut.angleBetweebClockHands(date: formatter.date(from: "05/03/2016 03:00")!), .pi / 2)
+        XCTAssertEqual(dut.angleBetweebClockHands(date: formatter.date(from: "05/03/2016 18:00")!), .pi)
+        XCTAssertEqual(dut.angleBetweebClockHands(date: formatter.date(from: "05/03/2016 21:00")!), .pi / 2)
     }
 }

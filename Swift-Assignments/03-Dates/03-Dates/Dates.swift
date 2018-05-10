@@ -8,11 +8,11 @@ class DatesFunctions {
      * For rfc2822 date specification refer to : http://tools.ietf.org/html/rfc2822#page-14
      *
      * Example:
-     *    'December 17, 1995 03:24:00'       => Date()
-     *    'Tue, 26 Jan 2016 13:48:02 GMT'    => Date()
-     *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
+     *    "December 17, 1995 03:24:00"       => Date()
+     *    "Tue, 26 Jan 2016 13:48:02 GMT"    => Date()
+     *    "Sun, 17 May 1998 03:00:00 GMT+01" => Date()
      */
-    func date(from rfc2822: String) -> Date {
+    func date(from rfc2822: String) -> Date? {
         return Date()
     }
     
@@ -21,11 +21,11 @@ class DatesFunctions {
      * For ISO 8601 date specification refer to : https://en.wikipedia.org/wiki/ISO_8601
      *
      * Example :
-     *    '2016-01-19T16:07:37+00:00'    => Date()
-     *    '2016-01-19T08:07:37Z'         => Date()
+     *    "2016-01-19T16:07:37+00:00"    => Date()
+     *    "2016-01-19T08:07:37Z"         => Date()
      */
-    func timeInterval(from iso8601: String) -> TimeInterval {
-        return 0
+    func timeInterval(from iso8601: String) -> TimeInterval? {
+        return nil
     }
     
     /**
@@ -33,11 +33,11 @@ class DatesFunctions {
      * Please find algorithm here: https://en.wikipedia.org/wiki/Leap_year#Algorithm
      *
      * Example :
-     *    1900 1 1    => false
-     *    2000 1 1    => true
-     *    2001 1 1    => false
-     *    2012 1 1    => true
-     *    2015 1 1    => false
+     *    1900/1/1    => false
+     *    2000/1/1    => true
+     *    2001/1/1    => false
+     *    2012/1/1    => true
+     *    2015/1/1    => false
      */
     func isDateLeapYear(_ date: Date) -> Bool {
         return false
@@ -45,14 +45,13 @@ class DatesFunctions {
     
     /**
      * Returns the string represention of the timespan between two dates.
-     * The format of output string is "HH:mm:ss.sss"
+     * The format of output string is "HH:mm:ss"
      *
      * Example:
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,11,0,0)   => "01:00:00.000"
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,30,0)       => "00:30:00.000"
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,20)        => "00:00:20.000"
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
-     *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
+     *    01/01/2000 10:00:00,  01/01/2000 11:00:00     => "01:00:00"
+     *    01/01/2000 10:00:00,  01/01/2000 10:30:00     => "00:30:00"
+     *    01/01/2000 10:00:00,  01/01/2000 10:00:20     => "00:00:20"
+     *    01/01/2000 10:00:00,  01/01/2000 15:20:10     => "05:20:10"
      */
     func timeSpan(from startDate: Date, to endDate: Date) -> String {
         return ""
@@ -63,11 +62,11 @@ class DatesFunctions {
      * specified Greenwich time.
      * If you have problem with solution please read: https://en.wikipedia.org/wiki/Clock_angle_problem
      *
-     * @example:
-     *    Date.UTC(2016,2,5, 0, 0) => 0
-     *    Date.UTC(2016,3,5, 3, 0) => .pi / 2
-     *    Date.UTC(2016,3,5,18, 0) => .pi
-     *    Date.UTC(2016,3,5,21, 0) => .pi / 2
+     * Example:
+     *    05/02/2016 00:00      => 0
+     *    05/03/2016 03:00      => .pi / 2
+     *    05/03/2016 18:00      => .pi
+     *    05/03/2016 21:00      => .pi / 2
      */
     func angleBetweebClockHands(date: Date) -> Double {
         return 0
