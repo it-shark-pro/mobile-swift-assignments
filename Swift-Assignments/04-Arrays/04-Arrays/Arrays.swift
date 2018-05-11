@@ -1,18 +1,17 @@
 
 import Foundation
 
-class Arrays<Element> {
+class ArraysFunctions {
     
     /**
      * Returns an index of the specified element in array or -1 if element is not found
      *
      * Example:
-     *    ["Ace", 10, true], 10                    => 1
-     *    ["Array", "Number', "string"], "Date"    => -1
+     *    ["Array", "Number", "string"], "Date"    => -1
      *    [0, 1, 2, 3, 4, 5], 5                    => 5
      */
-    func index(of element: Element) -> Int {
-        return -1
+    func index<Element: Equatable>(of element: Element, in array: Array<Element>) -> Int {
+        return 0
     }
     
     /**
@@ -32,11 +31,11 @@ class Arrays<Element> {
      * using original order
      *
      * Example:
-     *    ["Ace", 10, true]  => ["Ace", 10, true,   "Ace", 10, true]
+     *    ["Ace", "10", "Jack"]  => ["Ace", "10", "Jack",   "Ace", "10", "Jack"]
      *    [0, 1, 2, 3, 4, 5] => [0, 1, 2, 3, 4, 5,   0, 1, 2, 3, 4, 5]
      *    []                 => []
      */
-    func doubledArray(from array: Array<Element>) -> Array<Element> {
+    func doubledArray<Element>(from array: Array<Element>) -> Array<Element> {
         return []
     }
     
@@ -58,9 +57,9 @@ class Arrays<Element> {
      * Example:
      *    [0, 1, "cat", 3, true, "dog"] => ["cat", "dog"]
      *    [1, 2, 3, 4, 5]               => []
-     *    ["cat", "dog", "raccon"]      => ["cat", "dog", "racoon"]
+     *    ["cat", "dog", "raccoon"]      => ["cat", "dog", "raccoon"]
      */
-    func stringsArray(from array: Array<Element>) -> Array<String> {
+    func stringsArray<Element>(from array: Array<Element>) -> Array<String> {
         return []
     }
     
@@ -72,7 +71,7 @@ class Arrays<Element> {
      *    [1, 2, 3, 4, 5, false]   => [1, 2, 3, 4, 5, false]
      *    [nil, 0, 9, nil]         => [0, 9]
      */
-    func filterNils(from array: Array<Element?>) -> Array<Element> {
+    func filterNils<Element>(from array: Array<Element?>) -> Array<Element> {
         return []
     }
     
@@ -104,10 +103,10 @@ class Arrays<Element> {
      *
      * Example:
      *    [1, 3, 4, 5], 2, 1     => [1, 2, 3, 4, 5]
-     *    [1, "b", "c"], 0, "x"  => ["x", 1, "b", "c"]
+     *    ["1", "b", "c"], "x", 0   => ["x", 1, "b", "c"]
      */
-    func insertItem(_ item: Element, at index: Int, in array: Array<Element>) {
-        //
+    func arrayWithInsertedItem<Element>(_ item: Element, at index: Int, in array: Array<Element>) -> Array<Element> {
+        return []
     }
     
     /**
@@ -117,7 +116,7 @@ class Arrays<Element> {
      *    [1, 3, 4, 5 ], 2         => [1, 3]
      *    ["a", "b", "c", "d"], 3  => ["a", "b", "c"]
      */
-    func prefix(_ maxLength: Int, from array: Array<Element>) -> Array<Element> {
+    func prefix<Element>(_ maxLength: Int, from array: Array<Element>) -> Array<Element> {
         return []
     }
     
@@ -128,7 +127,7 @@ class Arrays<Element> {
      *    [1, 3, 4, 5 ], 2         => [4, 5]
      *    ["a", "b", "c", "d"], 3  => ["b", "c", "d"]
      */
-    func suffix(_ maxLength: Int, from array: Array<Element>) -> Array<Element> {
+    func suffix<Element>(_ maxLength: Int, from array: Array<Element>) -> Array<Element> {
         return []
     }
     
@@ -150,10 +149,10 @@ class Arrays<Element> {
      *  or f[n] = f[n-1] + x[n]
      *
      * Example:
-     *   [1, 1, 1, 1, 1]                  => [ 1, 2, 3, 4, 5 ]
-     *   [10, -10, 10, -10, 10]           => [ 10, 0, 10, 0, 10 ]
+     *   [1, 1, 1, 1, 1]                  => [1, 2, 3, 4, 5]
+     *   [10, -10, 10, -10, 10]           => [10, 0, 10, 0, 10]
      *   [0, 0, 0, 0, 0]                  => [0, 0, 0, 0, 0]
-     *   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
+     *   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  => [1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
      */
     func movingSumArray(from array: Array<Int>) -> Array<Int> {
         return []
@@ -167,7 +166,7 @@ class Arrays<Element> {
      * ["a", "b", "c", 1]              => ["b", 1]
      * ["a"]                           => []
      */
-    func objectsAtOddIndexes(from array: Array<Element>) -> Array<Element> {
+    func objectsAtOddIndexes<Element>(from array: Array<Element>) -> Array<Element> {
         return []
     }
     
@@ -179,11 +178,10 @@ class Arrays<Element> {
      *  []                 => []
      *  [1]                => [1]
      *  ["a", "b"]         => ["a", "b","b"]
-     *  ["a", "b", "c", 1] => ["a", "b","b", "c","c","c",  1,1,1,1]
      *  [1,2,3,4,5]        => [1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5]
      */
-    func propagateElements(of array: Array<Element>) {
-        //
+    func arrayByPropagatingElements<Element>(of array: Array<Element>) -> Array<Element> {
+        return []
     }
     
     /**
@@ -208,9 +206,8 @@ class Arrays<Element> {
      *   [-1, 0, 1]           => 1
      *   [1, 2, 3]            => 3
      *   [nil, 1, "elephant"] => 1
-     *   [1, "2"]             => 1
      */
-    func numberOfPositiveNumbers(in array: Array<Element?>) -> Int {
+    func numberOfPositiveNumbers<Element>(in array: Array<Element>) -> Int {
         return 0
     }
     
@@ -224,8 +221,8 @@ class Arrays<Element> {
      *   ["nine", "eight", "nine", "eight"] => ["eight", "eight", "nine", "nine"]
      *   ["one", "one", "one", "zero"]      => ["zero", "one", "one", "one"]
      */
-    func sortDigitNamesByNumericOrder(_ array: Array<String>) {
-        //
+    func sortedDigitNamesByNumericOrder(_ array: Array<String>) -> Array<String> {
+        return []
     }
     
     /**
@@ -245,13 +242,11 @@ class Arrays<Element> {
      * Returns the number of all occurrences of the specified item in the array
      *
      * Example:
-     *    [0, 0, 1, 1, 1, 2 ], 1     => 3
+     *    [0, 0, 1, 1, 1, 2], 1     => 3
      *    [1, 2, 3, 4, 5 ], 0        => 0
-     *    ["a','b','c','c' ], 'c'    => 2
-     *    [nil, "nil", nil], nil     => 2
-     *    [true, 0, 1, "true"], true => 1
+     *    ["a", "b", "c", "c"], "c"    => 2
      */
-    func countOccurrencesOfItem(_ item: Element, in array: Array<Element?>) -> Int {
+    func countOccurrencesOfItem<Element>(_ item: Element, in array: Array<Element?>) -> Int {
         return 0
     }
     
@@ -259,11 +254,11 @@ class Arrays<Element> {
      * Concatenates all elements from specified array into single string with ',' separator
      *
      * Example:
-     *    [0, false, "cat", true, ""]   => "0, false, cat,true'
-     *    [1, 2, 3, 4, 5]               => '1,2,3,4,5'
-     *    ["rock", "paper", "scissors"] => 'rock,paper,scissors'
+     *    [0, false, "cat", true, ""]   => "0, false, cat,true"
+     *    [1, 2, 3, 4, 5]               => "1,2,3,4,5"
+     *    ["rock", "paper", "scissors"] => "rock,paper,scissors"
      */
-    func string(from array: Array<Element>) -> String {
+    func string<Element>(from array: Array<Element>) -> String {
         return ""
     }
     
@@ -290,9 +285,9 @@ class Arrays<Element> {
      * Creates an array of integers from the specified start to end (inclusive)
      *
      * Example:
-     *     1, 5   => [1, 2, 3, 4, 5 ]
-     *    -2, 2   => [-2, -1, 0, 1, 2 ]
-     *     0, 100 => [0, 1, 2, ..., 100 ]
+     *     1, 5   => [1, 2, 3, 4, 5]
+     *    -2, 2   => [-2, -1, 0, 1, 2]
+     *     0, 100 => [0, 1, 2, ..., 100]
      *     3, 3   => [3]
      */
     func arrayOfIntegers(from startNumber: Int, to endNumber: Int) -> Array<Int> {
@@ -305,37 +300,43 @@ class Arrays<Element> {
      * Example:
      *   [1, 2, 3, 3, 2, 1]       => [1, 2, 3]
      *   ["a", "a", "a", "a"]     => ["a"]
-     *   [1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
+     *   [1, 1, 2, 2, 3, 3, 4, 4] => [1, 2, 3, 4]
      */
-    func uniqueElements(from array: Array<Element>) -> Array<Element> {
+    func uniqueElements<Element>(from array: Array<Element>) -> Array<Element> {
         return []
     }
     
     /**
-     * Returns a  dictionary from keys and values arrays
+     * Returns a  dictionary from arrays of keys and values
      *
      * Example:
      *
-     *   keys = []group([
-     *      { country: 'Belarus', city: 'Brest' },
-     *      { country: 'Russia', city: 'Omsk' },
-     *      { country: 'Russia', city: 'Samara' },
-     *      { country: 'Belarus', city: 'Grodno' },
-     *      { country: 'Belarus', city: 'Minsk' },
-     *      { country: 'Poland', city: 'Lodz' }
-     *     ],
-     *     item => item.country,
-     *     item => item.city
-     *   )
-     *            =>
-     *   Map {
-     *    "Belarus" => ["Brest", "Grodno", "Minsk"],
-     *    "Russia" => ["Omsk", "Samara"],
-     *    "Poland" => ["Lodz"]
-     *   }
+     *   keys = ["Brest", "Omsk", "Samara", "Grodno", "Minsk", "Łódź"]
+     *   values = ["Belarus", "Russia", "Russia", "Belarus", "Belarus", "Poland"]
+     *                              =>
+     *  dictionary = ["Brest": "Belarus", "Omsk": "Russia", "Samara": "Russia", "Grodno": "Belarus", "Minsk": "Belarus", "Łódź": "Poland"]
+     *
      */
     func formDictionary(with keys: Array<String>, and values: Array<String>) -> Dictionary<String, String> {
         return [:]
         
+    }
+    
+    /**
+     * Swaps the head and tail of the specified array:
+     * the head (first half) of array move to the end, the tail (last half) move to the start.
+     * The middle element (if exists) leave on the same position.
+     *
+     * Example:
+     *   [ 1, 2, 3, 4, 5 ]   =>  [4, 5, 3, 1, 2]
+     *    \----/   \----/
+     *     head     tail
+     *
+     *   [1, 2]                   => [2, 1]
+     *   [1, 2, 3, 4, 5, 6, 7, 8] => [5, 6, 7, 8, 1, 2, 3, 4]
+     *
+     */
+    func arrayBySwappingHeadWithTail<Element>(_ array: Array<Element>) -> Array<Element> {
+        return []
     }
 }
