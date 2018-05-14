@@ -16,4 +16,7 @@
    <FileRef
       location = "group:05-Conditions-N-Loops/05-Conditions-N-Loops.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:06-Classes-and-Structures/06-Classes-and-Structures.xcodeproj">
+   </FileRef>
 </Workspace>
