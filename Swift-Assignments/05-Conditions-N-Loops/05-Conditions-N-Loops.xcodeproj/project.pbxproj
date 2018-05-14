@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CC95931420A5DAF700EB5333 /* _5_Conditions_N_Loops.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC95930A20A5DAF700EB5333 /* _5_Conditions_N_Loops.framework */; };
-		CC95931920A5DAF700EB5333 /* _5_Conditions_N_LoopsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95931820A5DAF700EB5333 /* _5_Conditions_N_LoopsTests.swift */; };
-		CC95932520A5DC8100EB5333 /* ConditionsLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95932420A5DC8100EB5333 /* ConditionsLoops.swift */; };
+		CC95931920A5DAF700EB5333 /* ConditionsNLoopsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95931820A5DAF700EB5333 /* ConditionsNLoopsTests.swift */; };
+		CC95932520A5DC8100EB5333 /* ConditionsNLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95932420A5DC8100EB5333 /* ConditionsNLoops.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +26,9 @@
 		CC95930A20A5DAF700EB5333 /* _5_Conditions_N_Loops.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = _5_Conditions_N_Loops.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC95930E20A5DAF700EB5333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC95931320A5DAF700EB5333 /* 05-Conditions-N-LoopsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "05-Conditions-N-LoopsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC95931820A5DAF700EB5333 /* _5_Conditions_N_LoopsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _5_Conditions_N_LoopsTests.swift; sourceTree = "<group>"; };
+		CC95931820A5DAF700EB5333 /* ConditionsNLoopsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsNLoopsTests.swift; sourceTree = "<group>"; };
 		CC95931A20A5DAF700EB5333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC95932420A5DC8100EB5333 /* ConditionsLoops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsLoops.swift; sourceTree = "<group>"; };
+		CC95932420A5DC8100EB5333 /* ConditionsNLoops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsNLoops.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 		CC95930C20A5DAF700EB5333 /* 05-Conditions-N-Loops */ = {
 			isa = PBXGroup;
 			children = (
-				CC95932420A5DC8100EB5333 /* ConditionsLoops.swift */,
+				CC95932420A5DC8100EB5333 /* ConditionsNLoops.swift */,
 				CC95930E20A5DAF700EB5333 /* Info.plist */,
 			);
 			path = "05-Conditions-N-Loops";
@@ -80,7 +80,7 @@
 		CC95931720A5DAF700EB5333 /* 05-Conditions-N-LoopsTests */ = {
 			isa = PBXGroup;
 			children = (
-				CC95931820A5DAF700EB5333 /* _5_Conditions_N_LoopsTests.swift */,
+				CC95931820A5DAF700EB5333 /* ConditionsNLoopsTests.swift */,
 				CC95931A20A5DAF700EB5333 /* Info.plist */,
 			);
 			path = "05-Conditions-N-LoopsTests";
@@ -194,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC95932520A5DC8100EB5333 /* ConditionsLoops.swift in Sources */,
+				CC95932520A5DC8100EB5333 /* ConditionsNLoops.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC95931920A5DAF700EB5333 /* _5_Conditions_N_LoopsTests.swift in Sources */,
+				CC95931920A5DAF700EB5333 /* ConditionsNLoopsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
