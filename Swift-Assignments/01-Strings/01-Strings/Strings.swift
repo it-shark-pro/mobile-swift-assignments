@@ -1,6 +1,6 @@
 import Foundation
 
-public class StringFunctions {
+public final class StringFunctions {
     /**
      * Returns the result of concatenation of two strings.
      *

@@ -1,7 +1,7 @@
 
 import Foundation
 
-class DatesFunctions {
+final class DatesFunctions {
     
     /**
      * Parses a rfc2822 string date representation into date value

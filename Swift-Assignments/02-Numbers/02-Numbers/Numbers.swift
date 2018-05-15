@@ -2,7 +2,7 @@
 import Foundation
 import CoreGraphics
 
-class NumbersFunctions {
+final class NumbersFunctions {
     
     /**
      * Returns an area of a rectangle given by width and heigth.

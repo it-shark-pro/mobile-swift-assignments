@@ -1,7 +1,8 @@
 import XCTest
 @testable import _1_Strings
 
-class StringsTests: XCTestCase {
+final class StringsTests: XCTestCase {
+    
     var sut: StringFunctions!
 
     override func setUp() {
@@ -97,10 +98,10 @@ class StringsTests: XCTestCase {
     }
 
     func testIsString() {
-        XCTAssertEqual(sut.isString("aaaa"), true)
-        XCTAssertEqual(sut.isString(["a"]), false)
-        XCTAssertEqual(sut.isString(5), false)
-        XCTAssertEqual(sut.isString(nil), false)
+        XCTAssertTrue(sut.isString("aaaa"))
+        XCTAssertFalse(sut.isString(["a"]))
+        XCTAssertFalse(sut.isString(5))
+        XCTAssertFalse(sut.isString(nil))
     }
 
     func testCardById() {
