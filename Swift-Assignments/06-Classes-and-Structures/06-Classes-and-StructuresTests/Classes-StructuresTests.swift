@@ -4,7 +4,7 @@ import XCTest
 
 final class ClassesStructuresTests: XCTestCase {
     
-    var csut: ClassesStructuresFunctions!
+    var sut: ClassesStructuresFunctions!
     
     lazy private var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -15,68 +15,48 @@ final class ClassesStructuresTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        csut = ClassesStructuresFunctions()
+        sut = ClassesStructuresFunctions()
     }
     
     func testCreateStudent() {
-        let student = csut.createStudent(firstName: "Alex", lastName: "Kucherov", dateOfBirth: dateFormatter.date(from: "12/04/1999")!)
+        let student = sut.createStudent(firstName: "Alex", lastName: "Kucherov", dateOfBirth: dateFormatter.date(from: "12/04/1999")!)
         
-        XCTAssertNotNil(student)
+        let isEqualToStudent = student.map { Mirror(reflecting: $0).displayStyle == .struct &&
+                                            $0.firstName == "Alex" && $0.lastName == "Kucherov" &&
+                                            $0.dateOfBirth == dateFormatter.date(from: "12/04/1999") &&
+                                            $0.fullName == "Alex Kucherov" } ?? false
         
-        guard let stud = student else { return }
-        
-        XCTAssertTrue(Mirror(reflecting: stud).displayStyle == .struct, "Result should be an instance of structure")
-        XCTAssertEqual(stud.firstName, "Alex")
-        XCTAssertEqual(stud.lastName, "Kucherov")
-        XCTAssertEqual(stud.dateOfBirth, dateFormatter.date(from: "12/04/1999")!)
-        XCTAssertEqual(stud.fullName, "Alex Kucherov")
+        XCTAssertTrue(isEqualToStudent)
     }
     
     func testJSONStringFromPersonalInfo() {
-        let student = csut.createStudent(firstName: "Alex", lastName: "Kucherov", dateOfBirth: dateFormatter.date(from: "12/04/1999")!)
+        let student = sut.createStudent(firstName: "Alex", lastName: "Kucherov", dateOfBirth: dateFormatter.date(from: "12/04/1999")!)
         
-        XCTAssertNotNil(student)
+        let isEqualToJson = student.map { sut.jsonString(from: $0) == "{\"firstName\":\"Alex\",\"lastName\":\"Kucherov\",\"dateOfBirth\":\"12/04/1999\"}" } ?? false
         
-        guard let stud = student else { return }
-        
-        XCTAssertEqual(csut.jsonString(from: stud), "{\"firstName\":\"Alex\",\"lastName\":\"Kucherov\",\"dateOfBirth\":\"12/04/1999\"}")
+        XCTAssertTrue(isEqualToJson)
     }
     
     func testStudentFromJSON() {
         let json = ["firstName": "Alex", "lastName": "Kucherov", "dateOfBirth": "12/04/1999"]
-        let student = csut.studentFromJSON(json: json)
+        let student = sut.studentFromJSON(json: json)
         
-        XCTAssertNotNil(student)
+        let isEqualToStudent = student.map { Mirror(reflecting: $0).displayStyle == .struct &&
+                                            $0.firstName == json["firstName"]! && $0.lastName == json["lastName"]! &&
+                                            $0.dateOfBirth == dateFormatter.date(from: json["dateOfBirth"]!) &&
+                                            $0.fullName == json["firstName"]! + " " + json["lastName"]!} ?? false
         
-        guard let stud = student else { return }
-        
-        XCTAssertTrue(Mirror(reflecting: stud).displayStyle == .struct, "Result should be an instance of structure")
-        XCTAssertEqual(stud.firstName, json["firstName"])
-        XCTAssertEqual(stud.lastName, json["lastName"])
-        XCTAssertEqual(stud.dateOfBirth, dateFormatter.date(from: json["dateOfBirth"]!)!)
-        XCTAssertEqual(stud.fullName, json["firstName"]! + " " + json["lastName"]!)
+        XCTAssertTrue(isEqualToStudent)
     }
     
     func testSortedStudentsArray() {
-        let student_1 = csut.createStudent(firstName: "Alex", lastName: "Kucherov", dateOfBirth: dateFormatter.date(from: "12/04/1999")!)
-        let student_2 = csut.createStudent(firstName: "Mike", lastName: "Clumski", dateOfBirth: dateFormatter.date(from: "12/04/1999")!)
-        let student_3 = csut.createStudent(firstName: "Jack", lastName: "Johnson", dateOfBirth: dateFormatter.date(from: "12/04/1996")!)
-        let student_4 = csut.createStudent(firstName: "Greg", lastName: "Johnson", dateOfBirth: dateFormatter.date(from: "12/04/2000")!)
+        let student_1 = CISStudent(firstName: "Alex", secondName: "Antonovich", lastName: "Kucherov", dateOfBirth: Date())
+        let student_2 = CISStudent(firstName: "Mike", secondName: "Michailovich", lastName: "Clumski", dateOfBirth: Date())
+        let student_3 = CISStudent(firstName: "Jack", secondName: "Jozefovich", lastName: "Johnson", dateOfBirth: Date())
+        let student_4 = CISStudent(firstName: "Greg", secondName: "Markovich", lastName: "Johnson", dateOfBirth: Date())
+        let student_5 = CISStudent(firstName: "Greg", secondName: "Albertovich", lastName: "Johnson", dateOfBirth: Date())
         
-        XCTAssertNotNil(student_1)
-        XCTAssertNotNil(student_2)
-        XCTAssertNotNil(student_3)
-        XCTAssertNotNil(student_4)
-        
-        guard let stud_1 = student_1,
-              let stud_2 = student_2,
-              let stud_3 = student_3,
-              let stud_4 = student_4
-        else {
-            return
-        }
-        
-        
-//        XCTAssertEqual(csut.sortedStudentsArray(from: [stud_1, stud_2, stud_3, stud_4]), [stud_4, stud_3, stud_2, stud_1])
+        XCTAssertEqual(sut.sortedStudentsArray(from: [student_1, student_2, student_3, student_4, student_5]),
+                       [student_2, student_5, student_4, student_3, student_1])
     }
 }
