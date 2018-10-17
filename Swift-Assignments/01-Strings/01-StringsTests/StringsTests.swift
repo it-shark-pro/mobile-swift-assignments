@@ -58,7 +58,7 @@ final class StringsTests: XCTestCase {
     }
 
     func testRemoveBracketsInTag() {
-        XCTAssertEqual(sut.removeBrackets(in: "<dictionary>"), "key")
+        XCTAssertEqual(sut.removeBrackets(in: "<dictionary>"), "dictionary")
         XCTAssertEqual(sut.removeBrackets(in: "<key>"), "key")
         XCTAssertEqual(sut.removeBrackets(in: "<invalid"), nil)
         XCTAssertEqual(sut.removeBrackets(in: "invalid tag"), nil)
